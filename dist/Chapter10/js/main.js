@@ -3423,21 +3423,9 @@ eval("/**\n * Copyright (c) 2014, Facebook, Inc.\n * All rights reserved.\n *\n 
 /*!********************************!*\
   !*** ./src/chapter10/index.js ***!
   \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tools__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tools */ \"./src/chapter10/tools.js\");\n\r\n\r\n\r\n\r\n/* \r\nlog(\"Welcome to Chapter 10! The application name is \\'\" + appName + \"\\'. There is a function that returns \\'\" + dummyFunction() + \"\\'.\"); \r\n*/ \r\n//Rewrite the log() statement above passing Template literal \r\n//log(`Welcome to Chapter 10! The application name is \"${appName}\". \r\n//There is a function that returns \"${dummyFunction()}\".`) \r\n \r\n//leave the previous log() statements intact for reference.\r\n\r\n\r\n//Output Tagged template \r\n\r\n\r\n \r\n(0,_tools__WEBPACK_IMPORTED_MODULE_0__[\"default\"])((0,_tools__WEBPACK_IMPORTED_MODULE_0__.genericFunction)());\n\n//# sourceURL=webpack://git-js-node-primer/./src/chapter10/index.js?");
-
-/***/ }),
-
-/***/ "./src/chapter10/tools.js":
-/*!********************************!*\
-  !*** ./src/chapter10/tools.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   appName: () => (/* binding */ appName),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   dummyFunction: () => (/* binding */ dummyFunction),\n/* harmony export */   genericFunction: () => (/* binding */ genericFunction),\n/* harmony export */   weatherTag: () => (/* binding */ weatherTag)\n/* harmony export */ });\n\r\n\r\nconst log = output => { \r\n    document.getElementById(\"output\").innerHTML = output; \r\n   } \r\n   const appName = \"Chapter 10 Code Illustrations\"; \r\n   \r\n   const dummyFunction = () => { \r\n    return \"I am a dummy function\"; \r\n   } \r\n   const weatherTag = (string, temperature) =>{ \r\n    //Let us assume that the Template literal to be passed has two string parts separating the embedded expressions. \r\n    //We can capture these two parts as array elements \r\n    let substring0 = string[0]; \r\n    let substring1 = string[1]; \r\n    let weatherCondition; \r\n    //Let us use the embedded expressions for some logic \r\n    if (temperature > 26){ \r\n    weatherCondition = \"hot!\" \r\n    }else{ \r\n    weatherCondition = \"cool!\" \r\n    } \r\n    return `${substring0}${temperature}${substring1}${weatherCondition}` \r\n   } \r\n   /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (log); \r\n\r\n   const genericFunction = () => { \r\n    //declare an object literal \r\n    let personalInformation = { \r\n\r\n    firstName : 'Pius', \r\n    lastName : 'Onobhayedo', \r\n    gender : 'Male', \r\n    religion : 'Christianity (Catholic)', \r\n    fathersName : 'John', \r\n    mothersName : 'Patricia' \r\n    } \r\n    //deconstruct into new variables firstName, last name and otherPersonalInfo \r\n    let {firstName, lastName, ...otherPersonalInfo} = personalInformation; \r\n    \r\n    return `The first name is ${firstName} and the lastName is ${lastName}. Others are: gender = $ {otherPersonalInfo.gender}; religion = ${otherPersonalInfo.religion}; etc.`; \r\n   }\n\n//# sourceURL=webpack://git-js-node-primer/./src/chapter10/tools.js?");
+eval("\r\n\r\n\r\n\r\n/* \r\nlog(\"Welcome to Chapter 10! The application name is \\'\" + appName + \"\\'. There is a function that returns \\'\" + dummyFunction() + \"\\'.\"); \r\n*/ \r\n//Rewrite the log() statement above passing Template literal \r\n//log(`Welcome to Chapter 10! The application name is \"${appName}\". \r\n//There is a function that returns \"${dummyFunction()}\".`) \r\n \r\n//leave the previous log() statements intact for reference.\r\n\r\n\r\n//Output Tagged template \r\n\r\n\r\n//import log, {genericFunction} from './tools'; \r\n//log(genericFunction(2,3,4,6,8,9,10.5,12)); \r\n\r\n/* import log, {Person} from './tools'; \r\nlet person1 = new Person(\"Pius\", \"Onobhayedo\", \"Male\",1.7); \r\nlet person2 = new Person(\"Mary\", \"Joseph\", \"Female\", undefined); \r\nperson1.firstName = \"peter\"; //here we have deliberately used lowercase for first letter \r\nperson2.firstName = \"maria\"; //here we have deliberately used lowercase for first letter \r\nlog(`Person 1 is ${person1.getFirstName()} whose height is ${person1.height}. Person 2 is $ {person2.getFirstName()} whose height is ${person2.height}`); //using getFirstName() to get firstName. */  \r\n\r\n/* import log, {User} from './tools'; \r\nlet user1 = new User(\"myusername\",\"mypassword\",\"Pius\",\"Onobhayedo\",\"Male\",undefined); \r\nlog(`The username of ${user1.firstName} is ${user1.username}`)\r\n   \r\n */\r\n\r\n\r\nnew Promise((resolve, reject) => { \r\n    setTimeout(()=>{ \r\n    resolve(\"Timeout is over\"); //send out a success feedback with data using resolve \r\n    }, 1000) //set timeout for 1000ms i.e. 1second. \r\n    }).then((data) => { \r\n    log(`${data}`);//This should output \"Timeout is over\" \r\n    }).catch((error) => {//This will only be reached it the asynchronous function returned a reject statement. \r\n    log(`${error}`); \r\n    }); \r\n   //Let us still maintain the last log statement so that we can illustrate better how the asynchronous call that returns after the timeout does not stop the main execution thread. \r\n   let user1 = new User(\"myusername\",\"mypassword\",\"Pius\",\"Onobhayedo\",\"Male\",undefined); \r\n   log(`The username of ${user1.firstName} is ${user1.username}`)\n\n//# sourceURL=webpack://git-js-node-primer/./src/chapter10/index.js?");
 
 /***/ })
 
@@ -3468,18 +3456,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -3490,22 +3466,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /************************************************************************/
